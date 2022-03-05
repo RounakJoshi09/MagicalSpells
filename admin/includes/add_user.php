@@ -42,8 +42,8 @@
        <label for="user_role">Role</label>
        <br>
          <select name="user_role" id="">
-             <option value="admin">Admin</option>
-             <option value="subscriber">Subscriber</option>
+             <option value="Admin">Admin</option>
+             <option value="Subscriber">Subscriber</option>
          </select>
       </div>
       <div class="form-group">

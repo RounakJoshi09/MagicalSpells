@@ -38,8 +38,8 @@
                    case 'add_user';
                    include "includes/add_user.php";
                    break;
-                   case 'edit_post';
-                   include "includes/edit_post.php";
+                   case 'edit_user';
+                   include "includes/edit_user.php";
                    break;
                    case 120;
                    echo "NICE 120";
@@ -64,29 +64,29 @@
 
 <?php 
     
-       if(isset($_GET['delete_comment']))
+       if(isset($_GET['delete_user']))
        {
-           $comment_id=$_GET['delete_comment'];
-           $query="DELETE FROM comments WHERE comment_id={$comment_id}";
-           $delete_query=mysqli_query($connection,$query);
-           header("Location:comments.php");
-           checkQuery($delete_query);
+           $user_id=$_GET['delete_user'];
+           $query="DELETE FROM users WHERE user_id={$user_id}";
+           $delete_user_query=mysqli_query($connection,$query);
+           header("Location:users.php");
+           checkQuery($delete_user_query);
        }
-       if(isset($_GET['approve']))
+       if(isset($_GET['admin']))
        {
-           $comment_id=$_GET['approve'];
-           $query="UPDATE comments SET comment_status='Approved' WHERE comment_id={$comment_id}";
-           $approve_query=mysqli_query($connection,$query);
-           header("Location:comments.php");
-           checkQuery($approve_query);
+           $user_id=$_GET['admin'];
+           $query="UPDATE users SET user_role='Admin' WHERE user_id={$user_id}";
+           $admin_query=mysqli_query($connection,$query);
+           header("Location:users.php");
+           checkQuery($admin_query);
        }
-       if(isset($_GET['unapprove']))
+       if(isset($_GET['subscriber']))
        {
-           $comment_id=$_GET['unapprove'];
-           $query="UPDATE comments SET comment_status='Unapproved' WHERE comment_id={$comment_id}";
-           $unapprove_query=mysqli_query($connection,$query);
-           header("Location:comments.php");
-           checkQuery($unapprove_query);
+           $user_id=$_GET['subscriber'];
+           $query="UPDATE users SET user_role='Subscriber' WHERE user_id={$user_id}";
+           $subscriber_query=mysqli_query($connection,$query);
+           header("Location:users.php");
+           checkQuery($subscriber_query);
        }
 
     ?>

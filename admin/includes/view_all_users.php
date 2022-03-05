@@ -58,10 +58,11 @@
 //         echo "<td>{$post_category}</td>"; 
 //    } 
  
-  echo "<td><a href='comments.php?approve={$user_id}'>Approve</a></td>";
-   echo "<td><a href='comments.php?unapprove={$user_id}'>Unapprove</a></td>";
+  echo "<td><a href='users.php?admin={$user_id}'>Admin</a></td>";
+   echo "<td><a href='users.php?subscriber={$user_id}'>Subscriber</a></td>";
   ?>
-    <td><a href="/cms/admin/comments.php?delete_user=<?php echo $user_id ?>">Delete</a></td>
+    <td><a href="/cms/admin/users.php?delete_user=<?php echo $user_id ?>">Delete</a></td>
+    <td><a href="/cms/admin/users.php?source=edit_user&edit_user_id=<?php echo $user_id ?>">Edit</a></td>
   <?php
   echo "</tr>";
 
