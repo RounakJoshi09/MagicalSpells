@@ -23,9 +23,13 @@
                     $post_title=$row['post_title'];
                     $post_author=$row['post_author'];
                     $post_date=$row['post_date'];
+                    $post_status=$row['post_status'];
                     $post_content=substr($row['post_content'],0,70);
                     $post_content.="...";
                     $post_image=$row['post_image'];
+
+                    if($post_status=="published")
+                    {
                                                                           ?>
                                                                           
                                                                           
@@ -50,7 +54,7 @@
                 <hr>    
 
                 <?php        
-                }
+                } }
                 ?>
                 
 
