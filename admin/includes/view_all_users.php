@@ -17,9 +17,9 @@
 
 
   $query = "SELECT * FROM users";
-  $select_comments = mysqli_query($connection,$query);  
+  $select_users = mysqli_query($connection,$query);  
 
-  while($row = mysqli_fetch_assoc($select_comments)) {
+  while($row = mysqli_fetch_assoc($select_users)) {
   $user_id = $row['user_id'];
   $username = $row['username'];
   $user_firstname = $row['user_firstname'];
