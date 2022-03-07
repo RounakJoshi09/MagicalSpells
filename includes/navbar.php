@@ -29,17 +29,37 @@
                         <?php
                         
                     }
-                
-                
-                
+              
                 ?>    
-                
-                
-                
-                
-                <li>
+         <li>
                         <a href="admin/index.php">Admin</a>
                     </li>
+                    <li class="dropdown">
+<?php 
+if($_SESSION['username']===null)
+{
+    ?>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Register Now<b class="caret"></b></a>
+<?php
+}
+else
+{
+?>
+
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?php echo ' Welcome ' . ucfirst($_SESSION['firstname']) . ' ' . ucfirst($_SESSION['lastname']) . '!'; ?><b class="caret"></b></a>
+<?php
+}
+?>
+
+<ul class="dropdown-menu">
+
+<a href="includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+
+</li>
+
+</ul>
+
+</li>
                     <!-- <li>
                         <a href="#">Services</a>
                     </li>

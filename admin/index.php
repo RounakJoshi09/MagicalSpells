@@ -1,4 +1,13 @@
 <?php include "includes/admin_header.php" ?>
+<?php 
+if(!isset($_SESSION['user_role']) || $_SESSION['user_role']!="Admin")
+{
+    header("Location:../index.php");
+        
+}
+
+?>
+
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -13,7 +22,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             WELCOME TO ADMIN
-                            <small>Author </small>
+                            <small> <?php echo $_SESSION['username']?></small>
                         </h1>
                         
                     </div>
