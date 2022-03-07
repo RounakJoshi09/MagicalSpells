@@ -32,9 +32,13 @@
                 $user_image_temp=$_FILES['user_image']['tmp_name'];
 
                 // $post_comment_count=4;
-
-
-            
+                //Resetting sessions
+                $_SESSION['username']=$username;
+                $_SESSION['firstname']=$user_firstname;
+                $_SESSION['lastname']=$user_lastname;
+                $_SESSION['user_image']=$user_image;
+                $_SESSION['email']=$user_email;
+         
 
                 $query="UPDATE users SET user_firstname='{$user_firstname}',user_lastname='{$user_lastname}',user_email='{$user_email}',username='{$username}',user_password='{$user_password}'";
                 if($_FILES['user_image']['size']!=0)
@@ -97,5 +101,6 @@
     
 
 <?php
+        
         } 
  ?> 
