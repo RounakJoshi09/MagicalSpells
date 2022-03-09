@@ -25,7 +25,7 @@
 
             checkQuery($connection);
         
-        
+            echo "<h2 class='display-2'> Post Created</h2> : " . " " . "<a href='posts.php?source=view_all_post' class='link-primary'>View Posts</a> "; 
         
         
         }   

@@ -21,6 +21,7 @@
             $add_user_query=mysqli_query($connection,$query);
 
             checkQuery($connection);
+            echo "<h2 class='display-2'> User Created</h2> : " . " " . "<a href='users.php' class='link-primary'>View User</a> "; 
         
         }   
 
