@@ -47,11 +47,14 @@
                 }
 
             }
-            $query="UPDATE posts SET post_title='{$post_title}', post_author='{$post_author}', post_date=now(), post_image='{$post_image}', post_content='{$post_content}', post_tags='{$post_tags}', post_status='{$post_status}' WHERE post_id={$the_post_id}";
+            $query="UPDATE posts SET post_title='{$post_title}', post_category_id='{$post_category_id}',post_author='{$post_author}', post_date=now(), post_image='{$post_image}', post_content='{$post_content}', post_tags='{$post_tags}', post_status='{$post_status}' WHERE post_id={$the_post_id}";
 
             $update_post_query=mysqli_query($connection,$query);
 
             checkQuery($update_post_query);
+            
+            echo "<h2 class='display-2'> Post Updated</h2> : " . " " . "<a href='posts.php?source=view_all_post' class='link-primary'>View Posts</a> "; 
+        
         
         }
    
@@ -86,8 +89,6 @@
              $cat_id = $row['cat_id'];
              $cat_title = $row['cat_title']; 
             echo "<option value='{$cat_id}'>{$cat_title} </option>";
-       
-       
              } ?>
       </select>
       
