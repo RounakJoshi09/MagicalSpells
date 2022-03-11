@@ -63,6 +63,7 @@
                        $comment_author=$_POST['comment_author'];
                        $comment_email=$_POST['comment_email'];
                        $comment_content=$_POST['comment_content'];
+                       if(!empty($comment_author) && !empty($comment_email) && !empty($comment_content)){
                        $query="INSERT INTO comments(comment_post_id,comment_author,comment_email,comment_content,comment_status,comment_date) ";
                        $query.="VALUES ($the_post_comment_id,'{$comment_author}','{$comment_email}','{$comment_content}','Unapprove',now())";
                        //Increment of Comment Count
@@ -81,7 +82,13 @@
                         }
 
 
-                       
+                    }
+                    else
+                    {
+                        // echo "<h4> Please Below the above Fields</h4>";
+                          echo "<script>alert('Fields cannot be empty')</script>";
+
+                    }
                  }
                  ?>       
 

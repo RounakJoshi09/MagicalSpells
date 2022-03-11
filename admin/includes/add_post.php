@@ -24,8 +24,9 @@
             $create_post_query=mysqli_query($connection,$query);
 
             checkQuery($connection);
-        
-            echo "<h2 class='display-2'> Post Created</h2> : " . " " . "<a href='posts.php?source=view_all_post' class='link-primary'>View Posts</a> "; 
+
+            $the_post_id=mysqli_insert_id($connection);
+            echo "<h2 class='bgr-success'> Post Created</h2> : " . " " . "<a href='../post.php?p_id={$the_post_id}' class='link-primary'>View Posts</a> "; 
         
         
         }   
