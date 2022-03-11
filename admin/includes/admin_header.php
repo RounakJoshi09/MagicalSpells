@@ -12,7 +12,7 @@
 
 
 
-if(isset($_SESSION['user_role'])) {
+if(isset($_SESSION['user_role'])==='Admin') {
 
 
 

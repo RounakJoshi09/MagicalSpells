@@ -53,7 +53,7 @@
 
             checkQuery($update_post_query);
             
-            echo "<h2 class='display-2'> Post Updated</h2> : " . " " . "<a href='posts.php?source=view_all_post' class='link-primary'>View Posts</a> "; 
+            echo "<h2 class='bg-success'> Post Updated</h2> : " . " " . "<a href='../post.php?p_id={$the_post_id}' class='link-primary'>View Posts</a> or <a href='posts.php?source=view_all_posts'>Edit More Post</a> "; 
         
         
         }
