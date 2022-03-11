@@ -32,9 +32,35 @@
               
                 ?>    
          <li>
-                        <a href="admin/index.php">Admin</a>
-                    </li>
-                    <li class="dropdown">
+<?php
+if($_SESSION['user_role']==='Admin')
+{
+    ?>
+
+<a href="admin/index.php">Admin</a>
+<?php 
+}
+?>
+</li>
+                   
+<li>                   
+<?php 
+if(isset($_GET['p_id']) && $_SESSION['user_role']==='Admin')
+{
+?>
+<a href="admin/posts.php?source=edit_post&p_id=<?php echo $_GET['p_id'];?>">Edit Post</a>
+
+<?php
+}
+?>
+ </li>
+<li class="dropdown">
+
+
+
+
+
+
 <?php 
 if($_SESSION['username']===null)
 {
@@ -51,6 +77,11 @@ else
 }
 ?>
 
+
+
+
+
+?>
 <ul class="dropdown-menu">
 
 <a href="includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
