@@ -8,6 +8,7 @@
               <th>Lastname</th>
               <th>Email</th>
               <th>Date</th>
+              <th>Image</th>
               <th>Role</th>
           </tr>
       </thead>
@@ -27,7 +28,7 @@
   $user_email= $row['user_email'];
   $user_role = $row['user_role'];
   $user_registration_date=$row['user_registration_date'];
-   
+  $user_image=$row['user_image'];
 
 
   echo "<tr>";
@@ -38,6 +39,7 @@
   echo "<td>{$user_lastname}</td>";
   echo "<td>{$user_email}</td>";
   echo "<td>{$user_registration_date}</td>";
+  echo "<td><img width='100' src='../user_images/{$user_image}' alt=image></img></td>";
   echo "<td>{$user_role}</td>";
 //   // Querry to display post from comment_post_id
 //   $query="SELECT * FROM posts WHERE post_id=$comment_post_id";
