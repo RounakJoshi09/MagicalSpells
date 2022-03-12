@@ -30,6 +30,7 @@ if(isset($_POST['login']))
         $db_user_email=$row['user_email'];
         $db_user_registration_date=$row['user_registration_date'];
     }
+    $password=crypt($password,$db_user_password);
     if($username==$db_username && $password===$db_user_password)
     {
         $_SESSION['id']=$db_user_id;
