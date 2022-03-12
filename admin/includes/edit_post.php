@@ -48,7 +48,11 @@
 
             }
             $query="UPDATE posts SET post_title='{$post_title}', post_category_id='{$post_category_id}',post_author='{$post_author}', post_date=now(), post_image='{$post_image}', post_content='{$post_content}', post_tags='{$post_tags}', post_status='{$post_status}' WHERE post_id={$the_post_id}";
+            //For Resetting of view Count
+            $query_reset_views_count = "UPDATE posts SET post_views_count = 0 WHERE post_id = {$the_post_id}";
 
+            mysqli_query($connection, $query_reset_views_count);
+            //
             $update_post_query=mysqli_query($connection,$query);
 
             checkQuery($update_post_query);

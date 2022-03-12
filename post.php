@@ -15,11 +15,17 @@
                 </h1>
 
             <?php  
-
+                if($_SERVER['REQUEST_METHOD']!=='POST' && isset($_GET['p_id'])){
+                    $the_post_id=$_GET['p_id'];
+                    $query_views_count="UPDATE posts SET post_views_count=post_views_count+1 WHERE post_id={$the_post_id}";
+                    $increment_count=mysqli_query($connection,$query_views_count);
+                }
                 if(isset($_GET['p_id']))
                 {
+                    //To increment View Count
                     $post_id=$_GET['p_id'];
-                }
+                    
+                
                 $query= "SELECT * FROM posts WHERE post_id={$post_id}";
                 $all_posts=mysqli_query($connection,$query);
                 while($row=mysqli_fetch_assoc($all_posts))
@@ -51,6 +57,11 @@
 
                 <?php        
                 }
+             }
+             else
+             {
+                 header("Location:index.php");
+             }
                 ?>
 
 
