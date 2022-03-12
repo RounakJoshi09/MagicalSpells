@@ -48,7 +48,7 @@
 }
 else
 {
-    $message="cshke";
+    $message="";
 }
 
 

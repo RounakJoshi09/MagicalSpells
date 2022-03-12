@@ -65,7 +65,7 @@ if(isset($_GET['p_id']) && $_SESSION['user_role']==='Admin')
 if($_SESSION['username']===null)
 {
     ?>
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Register Now<b class="caret"></b></a>
+    <a href="/cms/registration.php" >Register Now</a>
 <?php
 }
 else

@@ -11,7 +11,16 @@
             $user_image_temp=$_FILES['user_image']['tmp_name'];
 
            // $post_comment_count=4;
-
+           // For Password Encryption
+           $query="SELECT randSalt FROM users";
+           $randSalt_query=mysqli_query($connection,$query);
+          if(!$randSalt_query)
+          {
+              echo ("Query Failed" . mysqli_error($connection));
+          }
+           $row=mysqli_fetch_array($randSalt_query);
+            $Salt=$row['randSalt'];
+           $user_password=crypt($user_password,$Salt);
               
             move_uploaded_file($user_image_temp,"../images/$user_image");
 

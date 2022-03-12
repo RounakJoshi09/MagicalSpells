@@ -59,8 +59,8 @@
 //         echo "<td>{$post_category}</td>"; 
 //    } 
   echo "<td>{$comment_date}</td>";
-  echo "<td><a href='comments.php?approve={$comment_id}'>Approve</a></td>";
-  echo "<td><a href='comments.php?unapprove={$comment_id}'>Unapprove</a></td>";
+  echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to Approve?'); \" href='comments.php?approve={$comment_id}'>Approve</a></td>";
+  echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to Unapprove?'); \" href='comments.php?unapprove={$comment_id}'>Unapprove</a></td>";
   ?>
     <td><a href="/cms/admin/comments.php?delete_comment=<?php echo $comment_id ?>">Delete</a></td>
   <?php
