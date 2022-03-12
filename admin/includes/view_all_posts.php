@@ -26,6 +26,30 @@ if(isset($_POST['select_submit']) && isset($_POST['checkBoxArray']))
                 $publish_query=mysqli_query($connection,$query_to_publish);
             }
     }
+    else if($_POST['select_option']=='select_clone')
+    {
+        foreach($_POST['checkBoxArray'] as $post_id)
+        {
+        
+        $query="SELECT * FROM posts WHERE post_id={$post_id}";
+        $select_query_to_clone=mysqli_query($connection,$query);    
+            while($row=mysqli_fetch_assoc($select_query_to_clone))    
+        {    $post_title=$row['post_title'];
+        $post_author=$row['post_author'];
+        $post_category_id=$row['post_category_id'];
+        $post_status=$row['post_status'];
+        //this is used to take files from input
+        $post_image=$row['post_image'];
+        $post_tags=$row['post_tags'];
+        $post_content=$row['post_content'];
+        $query="INSERT INTO posts(post_category_id,post_title,post_author,post_date,post_image,post_content,post_tags,post_status) ";
+        $query.="VALUES ({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}','{$post_status}')";    
+        $clone_post_query=mysqli_query($connection,$query);
+        checkQuery($connection);
+    }
+    
+    }
+    }
 }
 
 
@@ -52,7 +76,7 @@ if(isset($_POST['select_submit']) && isset($_POST['checkBoxArray']))
 </div>
 <!-- Select Post to Publish and Delete           -->
 <div style="width: 100%; "> 
-        <h4 class="bg-success">Publish ,Draft and Delete Post</h4>
+        <h4 class="bg-success">Publish ,Draft ,Clone and Delete Post</h4>
         <div class="row" id="bulkOptionContainer" style="padding: 0px;">
           <div class="col-sm-4">
            <select class="form-control" name="select_option" style="padding: 0px;" id="">
@@ -60,6 +84,7 @@ if(isset($_POST['select_submit']) && isset($_POST['checkBoxArray']))
                <option value="select_publish">Published</option>
                <option value="select_draft">Draft</option>
                <option value="select_delete">Delete</option>
+               <option value="select_clone">Clone</option>
            </select>
            </div>       
        <div class="form-group col-xs-4">
@@ -95,19 +120,19 @@ if(isset($_POST['select_submit']) && isset($_POST['checkBoxArray']))
     {
         if($_POST['option']=='publish')
         {
-            $query="SELECT * FROM posts where post_status='published' ";
+            $query="SELECT * FROM posts where post_status='published' ORDER BY post_id DESC";
         }
         else if($_POST['option']=='draft')
         {
-            $query="SELECT * FROM posts where post_status='draft' ";
+            $query="SELECT * FROM posts where post_status='draft' ORDER BY post_id DESC";
         }
         else if($_POST['option']=='all_post')
         {
-            $query = "SELECT * FROM posts";    
+            $query = "SELECT * FROM posts ORDER BY post_id DESC";    
         }
     }
     else
-  $query = "SELECT * FROM posts";
+  $query = "SELECT * FROM posts ORDER BY post_id DESC";
   $select_posts = mysqli_query($connection,$query);  
 
   while($row = mysqli_fetch_assoc($select_posts)) {
