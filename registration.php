@@ -30,16 +30,7 @@
          $password=mysqli_real_escape_string($connection,$password);
          $email=mysqli_real_escape_string($connection,$email);
          
-
-         $query="SELECT randSalt FROM users";
-         $randSalt_query=mysqli_query($connection,$query);
-        if(!$randSalt_query)
-        {
-            echo ("Query Failed" . mysqli_error($connection));
-        }
-         $row=mysqli_fetch_array($randSalt_query);
-          $Salt=$row['randSalt'];
-         $password=crypt($password,$Salt);
+        $password=password_hash($password,PASSWORD_BCRYPT,array('cost'=>12));
         
          //For moving uploaded image       
          move_uploaded_file($user_image_temp,"user_images/$user_image");  

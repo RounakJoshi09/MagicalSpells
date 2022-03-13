@@ -10,18 +10,7 @@
             $user_image=$_FILES['user_image']['name'];
             $user_image_temp=$_FILES['user_image']['tmp_name'];
 
-           // $post_comment_count=4;
-           // For Password Encryption
-           $query="SELECT randSalt FROM users";
-           $randSalt_query=mysqli_query($connection,$query);
-          if(!$randSalt_query)
-          {
-              echo ("Query Failed" . mysqli_error($connection));
-          }
-           $row=mysqli_fetch_array($randSalt_query);
-            $Salt=$row['randSalt'];
-           $user_password=crypt($user_password,$Salt);
-              
+             $user_password=password_hash($user_password,PASSWORD_BCRYPT,array('cost'=>12)); 
             move_uploaded_file($user_image_temp,"../images/$user_image");
 
             $query="INSERT INTO users(username,user_password,user_firstname,user_lastname,user_email,user_registration_date,user_role,user_image) ";

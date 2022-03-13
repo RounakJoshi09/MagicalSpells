@@ -29,16 +29,23 @@
                 $username=$_POST['username'];
                 $user_password=$_POST['user_password'];
                 //To encrypt Password
-                $query="SELECT randSalt FROM users";
-                $randSalt_query=mysqli_query($connection,$query);
-               if(!$randSalt_query)
-               {
-                   echo ("Query Failed" . mysqli_error($connection));
-               }
-                $row=mysqli_fetch_array($randSalt_query);
-                 $salt=$row['randSalt'];
-                $hash_password=crypt($user_password,$salt);        
+                if(!empty($user_password))
+                {
+                    $query_password="SELECT user_password FROM users WHERE user_id=$the_user_id";
+                    $get_user_query=mysqli_query($connection,$query_password);
+                    confirmQuery($get_user_query);
+                    $row=mysqli_fetch_array($get_user_query);
+                    $db_user_password=$row['user_password']; 
+                    if($db_user_password != $user_password) {
 
+                        $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+            
+                      }  
+                    $query_change_password="UPDATE users SET user_password='$user_password' WHERE user_id={$the_user_id}";
+                    $query_change=mysqli_query($connection,$query_change_password);        
+                }
+                
+                //Image
                 $user_image=$_FILES['user_image']['name'];
                 $user_image_temp=$_FILES['user_image']['tmp_name'];
 
@@ -51,7 +58,7 @@
                 $_SESSION['email']=$user_email;
          
 
-                $query="UPDATE users SET user_firstname='{$user_firstname}',user_lastname='{$user_lastname}',user_email='{$user_email}',username='{$username}',user_password='{$hash_password}'";
+                $query="UPDATE users SET user_firstname='{$user_firstname}',user_lastname='{$user_lastname}',user_email='{$user_email}',username='{$username}'";
                 if($_FILES['user_image']['size']!=0)
                 {
                     move_uploaded_file($user_image_temp,"../images/$user_image");
@@ -99,7 +106,7 @@
       </div>
       <div class="form-group">
          <label for="user_password">Password</label>
-          <input type="password" class="form-control" name="user_password" value="<?php echo $user_password?>">
+          <input autocomplete="off" type="password" class="form-control" name="user_password">
       </div>
 
        <div class="form-group">
@@ -115,4 +122,5 @@
 <?php
         
         } 
+       
  ?> 
