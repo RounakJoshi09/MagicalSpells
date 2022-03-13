@@ -15,7 +15,34 @@
                 </h1>
 
             <?php  
-                $query= "SELECT * FROM posts";
+                //For Pagination
+                $query_count_post="SELECT * FROM posts";
+                $query_count=mysqli_query($connection,$query_count_post);
+                $count=mysqli_num_rows($query_count);
+
+                $count=($count);
+
+                $no_of_pages=ceil($count/5);
+                
+                if(isset($_GET['page']))
+                {
+                    $page_no=$_GET['page'];
+                }    
+                else
+                {
+                    $page_no="";
+                }
+                 if($page_no=="" || $page_no==1)
+                 {
+                     $page=0;
+                 }
+                 else
+                 {
+                     $page=($page_no*5)-5;
+                 }   
+
+                 //pagination_done   
+                $query= "SELECT * FROM posts LIMIT $page,5";
                 $all_posts=mysqli_query($connection,$query);
                 while($row=mysqli_fetch_assoc($all_posts))
                 {
@@ -57,7 +84,29 @@
                 } }
                 ?>
                 
+            <ul class="pager">
 
+             <?php 
+             
+             for($i=1;$i<=$no_of_pages;$i++)
+             {
+                 if($page_no==$i)
+                 {
+                    echo "<li><a class='active_link' href='index.php?page={$i}'>$i</a></li>";  
+               
+                 }
+                 else
+{                  echo "<li><a href='index.php?page={$i}'>$i</a></li>";  
+ 
+                }
+}
+             
+             
+             ?>       
+
+
+
+            </ul>        
                 
             </div>
 
