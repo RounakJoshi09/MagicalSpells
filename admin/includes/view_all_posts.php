@@ -177,7 +177,15 @@ if(isset($_POST['select_submit']) && isset($_POST['checkBoxArray']))
   echo "<td>{$post_status}</td>";
   echo "<td><img width='100' src='../images/{$post_image}' alt=image></img></td>";
   echo "<td>{$post_tags}</td>";
-  echo "<td>{$post_comments}</td>";
+// For Counting of Comments
+   $count_comment_query="SELECT * FROM comments WHERE comment_post_id=$post_id";
+   $count_query_exe=mysqli_query($connection,$count_comment_query);
+   $count=mysqli_num_rows($count_query_exe);
+  echo "<td>{$count}</td>";
+  
+  
+  
+  
   echo "<td>{$post_date}</td>";
   echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";
   echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete?'); \"href='posts.php?delete={$post_id}'>Delete</a></td>";
