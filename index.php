@@ -11,7 +11,7 @@
                 
             <h1 class="page-header">
                     Magical Spells
-                    <small>Secondary Text</small>
+                    <small>Hello World</small>
                 </h1>
 
             <?php  
