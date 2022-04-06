@@ -180,8 +180,16 @@ if(isset($_POST['select_submit']) && isset($_POST['checkBoxArray']))
 // For Counting of Comments
    $count_comment_query="SELECT * FROM comments WHERE comment_post_id=$post_id";
    $count_query_exe=mysqli_query($connection,$count_comment_query);
+
+
+//    $row=mysqli_fetch_array($count_query_exe);//For fetching of comment id
+//    if(isset($row['comment_id']))
+//    $comment_id=$row['comment_id'];//Taking comment id
+   
+   
    $count=mysqli_num_rows($count_query_exe);
-  echo "<td>{$count}</td>";
+  // $row=$count['post_id'];
+  echo "<td><a href='post_comments.php?id=$post_id'>{$count}</a></td>";
   
   
   

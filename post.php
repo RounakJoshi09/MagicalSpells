@@ -78,8 +78,8 @@
                        $query="INSERT INTO comments(comment_post_id,comment_author,comment_email,comment_content,comment_status,comment_date) ";
                        $query.="VALUES ($the_post_comment_id,'{$comment_author}','{$comment_email}','{$comment_content}','Unapprove',now())";
                        //Increment of Comment Count
-                    //    $query_increment="UPDATE posts SET post_comment_count=post_comment_count+1 where post_id={$the_post_comment_id}";
-                    //    $increment_comment_query=mysqli_query($connection,$query_increment);     
+                        $query_increment="UPDATE posts SET post_comment_count=post_comment_count+1 where post_id={$the_post_comment_id}";
+                        $increment_comment_query=mysqli_query($connection,$query_increment);     
                        $create_comment_query=mysqli_query($connection,$query);
                       
                        if(!$increment_comment_query)
