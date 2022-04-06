@@ -55,7 +55,7 @@ if(isset($_POST['login']))
         // echo "<br>";
         // echo $db_user_password;
         echo "Something Wrong";
-        header("Location:../index.php");
+        header("Location:../index1.php");
     }
 
 }
