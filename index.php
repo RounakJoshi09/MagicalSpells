@@ -40,7 +40,7 @@ In this way, the website will be able to interact with a large number of users a
               <li><a href="">Home</a></li>
               <li><a href="">About Us</a></li>
               <li><a href="">Contact</a></li>
-              <a href="http://localhost/Tailwind%20CSS/index1.php" class="button4">Log in</a>
+              <a href="http://localhost/cms/index1.php" class="button4">Log in</a>
 
           </ul>
       </nav>
@@ -58,7 +58,7 @@ In this way, the website will be able to interact with a large number of users a
             <button class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
                 About Us</button>
                 
-              <a href="http://localhost/Tailwind%20CSS/index1.php" class="button">Explore Now</a>
+              <a href="http://localhost/cms/index1.php" class="button">Explore Now</a>
             <!--  <button type="button" class="btn btn-outline-success">Sign Up</button> -->
 
         </div>
