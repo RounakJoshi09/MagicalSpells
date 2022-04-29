@@ -14,7 +14,7 @@
 
 <div class="offcanvas offcanvas-top" id="demo">
   <div class="offcanvas-header">
-    <h1 class="offcanvas-title">Magical Spells</h1>
+    <h1 class="offcanvas-title" style="font-family:cursive;">Magical Spells</h1>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
   </div>
   <div class="offcanvas-body">

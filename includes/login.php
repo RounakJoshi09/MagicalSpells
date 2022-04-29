@@ -4,7 +4,7 @@
 
 if(isset($_POST['login']))
 {
-    echo "hello world";
+  //  echo "hello world";
    $username=$_POST['username'];
    $password=$_POST['password'];
 //    mysqli_real_escape_string($connection,$variable) is used to protect data from the hackers .

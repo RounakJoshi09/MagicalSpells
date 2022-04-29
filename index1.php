@@ -9,15 +9,12 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
             <h1 class="page-header">
-<!--                 
-                        <img src="images/logo.png" alt="logo"  style="height: 100px">
-                    <h1 class="font-family:Brush Script MT, Brush Script Std, cursive"> Magical Spells</h1>
-                     -->
+
                      <table>
     <tr>
          <td>
-         <img src="images/logo.png" alt="logo"  style="height: 100px">
-         <td>       <h1 > Magical Spells</h1></td>
+         <img src="images/logo.png" alt="logo"  style="height: 100px; border-radius:50px;">
+         <td>       <h1 style=" font-family:cursive; font-weight:1000; font-size:50px; color : white; text-shadow:4px 4px 6px #337ab7;"> Magical Spells</h1></td>
          </td>
     </tr>
     
