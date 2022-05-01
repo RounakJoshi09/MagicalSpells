@@ -66,8 +66,8 @@
 
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <h4>Keep Reading !</h4>
+                    <p>The reading of all good books is like conversation with the finest (people) of the past centuries.</p>
                 </div>
 
             </div>
