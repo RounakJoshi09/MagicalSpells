@@ -43,13 +43,15 @@
   // Querry to display post from comment_post_id
   $query="SELECT * FROM posts WHERE post_id=$comment_post_id";
   $comment_query=mysqli_query($connection,$query);
+  
   while($row=mysqli_fetch_assoc($comment_query))
   {
             $post_id=$row['post_id'];
             $post_title=$row['post_title'];
-  }
-  echo "<td><a href='/cms/post.php?p_id={$post_id}'>{$post_title}</a></td>";
+    echo "<td><a href='/cms/post.php?p_id={$post_id}'>{$post_title}</a></td>";
  
+        }
+  
 //   $query="SELECT * FROM categories WHERE cat_id={$post_category_id}";
 //   $query_categories=mysqli_query($connection,$query);
 //   checkQuery($query);
